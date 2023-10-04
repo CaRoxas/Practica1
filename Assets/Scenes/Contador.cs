@@ -11,12 +11,15 @@ public class Contador : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        textoContador.text = "Temporizador";
     }
 
     // Update is called once per frame
     void Update()
     {
-        textoContador.text = "";
+        Tiempo = Tiempo + Time.deltaTime;
+        textoContador.text = Tiempo.ToString();
     }
 }
+
+        
