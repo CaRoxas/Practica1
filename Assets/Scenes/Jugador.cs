@@ -30,8 +30,15 @@ public class Jugador : MonoBehaviour
         {
             PauseGame();
         }
-
     }
+    /*/private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (tiempo = tiempo + Time.deltaTime + 2)
+        {
+            ResumeGame();
+        }
+
+    }*/
 
     void PauseGame ()
     {
