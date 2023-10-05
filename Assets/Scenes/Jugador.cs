@@ -6,46 +6,64 @@ public class Jugador : MonoBehaviour
 {
     public float movX;
     public float movY;
-    public float tiempo;
+    bool quieto;
+    float tiempo = 2;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        tiempo = tiempo + Time.deltaTime;
-        Debug.Log(tiempo);
         movX = Input.GetAxis("Horizontal");
         movY = Input.GetAxis("Vertical");
         Vector2 direccion = new Vector2(movX, movY);
         rb.velocity = direccion * 3;
+        
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Paredes")
         {
-            PauseGame();
+            if (quieto)
+            {
+                rb.velocity = new Vector2(0f, 0f);
+            }
+
+            // cuando pasen los segundos...
+            if (tiempo > 0)
+            {
+                tiempo = tiempo - Time.deltaTime;
+            }
+            else
+            {
+                movX = Input.GetAxis("Horizontal");
+                movY = Input.GetAxis("Vertical");
+                Vector2 direccion = new Vector2(movX, movY);
+                rb.velocity = direccion * 3;
+            } 
+            if (tiempo > 0)
+            {
+                  tiempo = tiempo - Time.deltaTime;
+            }
+            else
+            {
+                quieto = false;
+            }
         }
     }
-    /*/private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (tiempo = tiempo + Time.deltaTime + 2)
-        {
-            ResumeGame();
-        }
 
-    }*/
-
-    void PauseGame ()
+    void PauseGame()
     {
         Time.timeScale = 0;
     }
-    void ResumeGame ()
+    void ResumeGame()
     {
         Time.timeScale = 1;
     }
 }
+

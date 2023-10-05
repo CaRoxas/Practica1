@@ -7,41 +7,27 @@ using System;
 public class Contador : MonoBehaviour
 {
     public TMP_Text textoContador;
-    float Tiempo = 0f;
-    //bool Contador = false
+    float Tiempo = 120f;
+    bool Temporizador = true;
     // Start is called before the first frame update
     void Start()
     {
-        textoContador.text = "Temporizador";
-        //Contador = true;
+        textoContador.text = "Tiempo";
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*/if (Contador)
+        if (Tiempo > 0)
         {
-            if (timeRemaining > 0)
-            {
-            timeRemaining -= Time.deltaTime;
-            }
+          Tiempo = Tiempo - Time.deltaTime;
+          textoContador.text = Tiempo.ToString();
         }
         else
         {
-            timeRemaining = 0;
-            Contador = false;
-        }*/
-        
-        
-        
-        
-        Tiempo = Tiempo + Time.deltaTime;
-        /*/textoContador.text = Tiempo.ToString();
-        for (int i = 2; i > Tiempo; i--)*/
-        {
-
-        } 
-        
+          Tiempo = 0;
+          Temporizador = false;
+        }
     }
 }
 
