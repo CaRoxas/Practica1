@@ -7,54 +7,60 @@ public class Jugador : MonoBehaviour
     public float movX;
     public float movY;
     bool quieto;
-    float tiempo = 2;
+    float tiempo = 2f;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        movX = Input.GetAxis("Horizontal");
-        movY = Input.GetAxis("Vertical");
-        Vector2 direccion = new Vector2(movX, movY);
-        rb.velocity = direccion * 3;
-        
+        if (quieto == false) 
+        {
+            movX = Input.GetAxis("Horizontal");
+            movY = Input.GetAxis("Vertical");
+            Vector2 direccion = new Vector2(movX, movY);
+            rb.velocity = direccion * 3;
+        }
+        else
+        {
+            if (tiempo > 0)
+            {
+                tiempo = tiempo - Time.deltaTime;
+                quieto = true;
+            }
+            else
+            {
+                tiempo = 0;
+                quieto = false;
+                GetComponent<SpriteRenderer>().color = Color.white;
+            }
+        }
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Paredes")
         {
-            if (quieto)
-            {
-                rb.velocity = new Vector2(0f, 0f);
-            }
-
-            // cuando pasen los segundos...
-            if (tiempo > 0)
-            {
-                tiempo = tiempo - Time.deltaTime;
-            }
-            else
-            {
-                movX = Input.GetAxis("Horizontal");
-                movY = Input.GetAxis("Vertical");
-                Vector2 direccion = new Vector2(movX, movY);
-                rb.velocity = direccion * 3;
-            } 
-            if (tiempo > 0)
-            {
-                  tiempo = tiempo - Time.deltaTime;
-            }
-            else
-            {
-                quieto = false;
-            }
+            quieto = true;
+            GetComponent<SpriteRenderer>().color = Color.red;
         }
+        
+        
+        /*/if (tiempo > 0)
+        {
+            tiempo = tiempo - Time.deltaTime;
+            quieto = true;
+        }
+        else
+        {
+            tiempo = 0;
+            quieto = false;
+        }*/
+        
     }
 
     void PauseGame()
