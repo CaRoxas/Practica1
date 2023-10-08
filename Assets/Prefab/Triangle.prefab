@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1641235732318537747}
   - component: {fileID: 4447048796206080213}
   - component: {fileID: 3777959611167609457}
-  - component: {fileID: -5279230534366801593}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Premio
@@ -162,15 +161,3 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
---- !u!114 &-5279230534366801593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 198513765555452498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2de64bfb17b68814592d78a42a43c7e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
