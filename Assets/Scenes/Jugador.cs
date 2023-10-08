@@ -49,7 +49,7 @@ public class Jugador : MonoBehaviour
             GetComponent<SpriteRenderer>().color = Color.red;
         }
         
-        
+     
         /*/if (tiempo > 0)
         {
             tiempo = tiempo - Time.deltaTime;
@@ -61,15 +61,6 @@ public class Jugador : MonoBehaviour
             quieto = false;
         }*/
         
-    }
-
-    void PauseGame()
-    {
-        Time.timeScale = 0;
-    }
-    void ResumeGame()
-    {
-        Time.timeScale = 1;
     }
 }
 

@@ -1,14 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using System;
 
 public class Monedas : MonoBehaviour
 {
-    public TMP_Text textoMonedas;
     Rigidbody rb;
-    private int monedas = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,16 +14,14 @@ public class Monedas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textoMonedas.text = monedas.ToString();
+        
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if(collision.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
-            monedas = monedas + 1;
-
+            Destroy(this.gameObject);
         }
     }
 }

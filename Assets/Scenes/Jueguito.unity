@@ -501,7 +501,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1205791899}
-  - component: {fileID: 1205791898}
+  - component: {fileID: 1205791900}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -509,18 +509,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1205791898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205791897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba235df857cc1841a7d02a2745aa85f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1205791899
 Transform:
   m_ObjectHideFlags: 0
@@ -536,6 +524,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1205791900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205791897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b233ed508542740af57ee5ff19294a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textoMonedas: {fileID: 1447424648}
+  puntos: 0
 --- !u!1001 &1387025611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -868,6 +870,7 @@ GameObject:
   - component: {fileID: 1447424647}
   - component: {fileID: 1447424649}
   - component: {fileID: 1447424648}
+  - component: {fileID: 1447424650}
   m_Layer: 5
   m_Name: Monedas
   m_TagString: Untagged
@@ -991,25 +994,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447424646}
   m_CullTransparentMesh: 1
---- !u!1 &1464587402 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4696360645312004579, guid: f0f606406b3b35b4e89709939070378e, type: 3}
-  m_PrefabInstance: {fileID: 4667521733410787892}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1464587403
+--- !u!114 &1447424650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464587402}
+  m_GameObject: {fileID: 1447424646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9859d5238e9a9834dabcf99174e9899b, type: 3}
+  m_Script: {fileID: 11500000, guid: 62b233ed508542740af57ee5ff19294a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movX: 0
-  movY: 0
+  textoMonedas: {fileID: 1447424648}
+  puntos: 0
+--- !u!114 &1464587410 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2914813807363638304, guid: f0f606406b3b35b4e89709939070378e, type: 3}
+  m_PrefabInstance: {fileID: 4667521733410787892}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b233ed508542740af57ee5ff19294a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1712182595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,6 +1753,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5279230534366801593, guid: 0c4ae45a1a12b9d4aa3fb60be055768b, type: 3}
+      propertyPath: scriptpuntos
+      value: 
+      objectReference: {fileID: 1464587410}
     - target: {fileID: 198513765555452498, guid: 0c4ae45a1a12b9d4aa3fb60be055768b, type: 3}
       propertyPath: m_Name
       value: Triangle
@@ -1849,9 +1862,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2914813807363638304, guid: f0f606406b3b35b4e89709939070378e, type: 3}
+      propertyPath: textoMonedas
+      value: 
+      objectReference: {fileID: 1447424648}
     - target: {fileID: 4696360645312004579, guid: f0f606406b3b35b4e89709939070378e, type: 3}
       propertyPath: m_Name
       value: Jugador
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115675492968653244, guid: f0f606406b3b35b4e89709939070378e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8035830881392062749, guid: f0f606406b3b35b4e89709939070378e, type: 3}
       propertyPath: m_Constraints
@@ -1864,10 +1885,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4696360645312004579, guid: f0f606406b3b35b4e89709939070378e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1464587403}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0f606406b3b35b4e89709939070378e, type: 3}
 --- !u!1001 &4916417590503984271
 PrefabInstance:
