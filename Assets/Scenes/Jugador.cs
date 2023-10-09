@@ -47,6 +47,15 @@ public class Jugador : MonoBehaviour
 
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Paredes")
+        {
+            quieto = true;
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "Premio")
@@ -61,15 +70,6 @@ public class Jugador : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Paredes")
-        {
-            quieto = true;
-            GetComponent<SpriteRenderer>().color = Color.red;
-        }
-    }
-    
     void PauseGame()
     {
         Time.timeScale = 0;
