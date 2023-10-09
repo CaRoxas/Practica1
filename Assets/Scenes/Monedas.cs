@@ -10,7 +10,7 @@ public class Monedas : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        FXMonedas = GameObject.Find("FXMonedas").GetComponent<AudioSource>();
+        FXMonedas = GameObject.Find("FXMoneda").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

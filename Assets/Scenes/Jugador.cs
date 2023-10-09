@@ -7,12 +7,16 @@ using System;
 public class Jugador : MonoBehaviour
 {
     public TMP_Text textoMonedas;
+    public GameObject PanelInutil;
+    public GameObject PanelMedio;
+    public GameObject PanelCrack;
     public float movX;
     public float movY;
-    bool quieto;
+    public bool quieto;
     float tiempo = 2f;
     public int puntos;
     Rigidbody2D rb;
+    public GameObject Movible;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,10 +53,21 @@ public class Jugador : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Paredes")
         {
             quieto = true;
+            tiempo = 2f;
             GetComponent<SpriteRenderer>().color = Color.red;
+        }
+        //Examen
+        if (collision.gameObject.tag == "Cambiador")
+        {
+            transform.localScale = new Vector2(0.3f, 0.5f);
+        }
+        if (collision.gameObject.tag == "Llave")
+        {
+            Destroy(Movible);
         }
     }
 
@@ -62,11 +77,23 @@ public class Jugador : MonoBehaviour
         {
             Destroy (gameObject);
             PauseGame();
+            if (puntos == 6)
+            {
+                Debug.Log("SuperMensaje");
+            }
+            else if (puntos < 6 && puntos > 0)
+            {
+                Debug.Log("Mensaje Medio");
+            }
+            else
+            {
+                Debug.Log("Matado");
+            }
         }
         if (col.gameObject.tag == "Monedas")
         {
             puntos = puntos + 1;
-            textoMonedas.text = "Monedas " + puntos;
+            textoMonedas.text = "Rupias " + puntos;
         }
     }
 

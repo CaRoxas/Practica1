@@ -6,7 +6,7 @@ using System;
 
 public class Contador : MonoBehaviour
 {
-  public GameObject GameOver;
+  public GameObject PanelGameOver;
   public TMP_Text textoContador;
   float Tiempo = 120f;
   bool Temporizador = true;
@@ -28,14 +28,9 @@ public class Contador : MonoBehaviour
       {
         Tiempo = 0;
         Temporizador = false;
-        //StartCoroutine(perdedor());
-        //GameOver.SetActive (true);
+        //GameObject.SetActive(PanelGameOver);
       }   
   }
-  /*/IEnumerator perdedor ()
-  {
-
-  }*/
 }
 
         
