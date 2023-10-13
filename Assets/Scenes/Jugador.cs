@@ -80,14 +80,17 @@ public class Jugador : MonoBehaviour
             if (puntos == 6)
             {
                 Debug.Log("SuperMensaje");
+                PanelCrack.SetActive(true);
             }
             else if (puntos < 6 && puntos > 0)
             {
                 Debug.Log("Mensaje Medio");
+                PanelMedio.SetActive(true);
             }
             else
             {
                 Debug.Log("Matado");
+                PanelInutil.SetActive(true);
             }
         }
         if (col.gameObject.tag == "Monedas")

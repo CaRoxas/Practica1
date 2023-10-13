@@ -8,7 +8,7 @@ public class Contador : MonoBehaviour
 {
   public GameObject PanelGameOver;
   public TMP_Text textoContador;
-  float Tiempo = 120f;
+  float Tiempo = 90f;
   bool Temporizador = true;
   // Start is called before the first frame update
   void Start()
@@ -28,7 +28,7 @@ public class Contador : MonoBehaviour
       {
         Tiempo = 0;
         Temporizador = false;
-        //GameObject.SetActive(PanelGameOver);
+        PanelGameOver.SetActive(true);
       }   
   }
 }
