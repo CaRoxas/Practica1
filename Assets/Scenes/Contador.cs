@@ -9,11 +9,14 @@ public class Contador : MonoBehaviour
   public GameObject PanelGameOver;
   public TMP_Text textoContador;
   float Tiempo = 90f;
-  bool Temporizador = true;
+  public AudioSource Musica;
+  public AudioSource Derrota;
   // Start is called before the first frame update
   void Start()
   {
       textoContador.text = "Tiempo";
+      Musica = GameObject.Find("Musica").GetComponent<AudioSource>();
+      Derrota = GameObject.Find("Derrota").GetComponent<AudioSource>();
   }
 
   // Update is called once per frame
@@ -27,8 +30,9 @@ public class Contador : MonoBehaviour
       else
       {
         Tiempo = 0;
-        Temporizador = false;
         PanelGameOver.SetActive(true);
+        Musica.Stop();
+        Derrota.Play();
       }   
   }
 }
